@@ -1,0 +1,75 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.pfe.example</groupId>
+  <artifactId>bundle-root</artifactId>
+  <version>0.0.1</version>
+  <packaging>pom</packaging>
+  
+  <name>bundle-root</name>
+  <description>parent project</description>
+  
+  
+  
+  <build>
+		<plugins>
+		<!-- Maven compiler plugin -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>${maven-compiler-plugin-version}</version>
+				<configuration>
+					<source>${project.build.cfg}</source>
+					<target>${project.build.cfg}</target>
+					<encoding>${project.build.sourceEncoding}</encoding>
+				</configuration>
+			</plugin>
+		<!-- Maven resources plugin -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-resources-plugin</artifactId>
+				<version>${maven-resources-plugin-version}</version>
+				<configuration>
+					<encoding>${project.build.sourceEncoding}</encoding>
+				</configuration>
+			</plugin>
+		<!-- to run the example using mvn camel:run -->
+			<plugin>
+				<groupId>org.apache.camel</groupId>
+				<artifactId>camel-maven-plugin</artifactId>
+				<version>${camel-version}</version>
+				<configuration>
+					<useBlueprint>true</useBlueprint>
+				</configuration>
+			</plugin>	
+			
+		</plugins>
+  </build>
+  
+  <modules>
+		<module>../bundle-integration</module>
+		<module>../bundle-example</module>
+  </modules>	
+  
+  
+  
+  <properties>
+  	
+  	<jacoco-maven-plugin-version>0.7.5.201505241946</jacoco-maven-plugin-version>
+  	<!-- activemq properties -->
+  	<activemq-version>5.14.0</activemq-version>
+    <!-- camel properties -->
+    <camel-version>2.17.3</camel-version>
+    
+    <!-- Other properties -->
+   	<maven-bundle-plugin-version>3.0.0</maven-bundle-plugin-version>
+    <maven-compiler-plugin-version>3.5.1</maven-compiler-plugin-version>
+    <maven-resources-plugin-version>3.0.2</maven-resources-plugin-version>
+    <maven-install-plugin-version><!-- 2.5.1 -->2.5.1</maven-install-plugin-version>
+    <project.build.cfg>1.8</project.build.cfg>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	<bundle-root-version>0.0.1</bundle-root-version>
+	<bundle-example-version>0.0.1</bundle-example-version>
+    
+    
+  </properties>		
+</project>
